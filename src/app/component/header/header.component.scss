@@ -1,0 +1,21 @@
+.container-fluid{
+    background-color: #ccd6e0 !important;
+    img{
+        height: auto;
+        width: 4rem;
+    }
+}
+.collapse{
+    a{
+        text-decoration: none;
+        margin: 1rem;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 30px;
+        color: rgb(17, 17, 17);
+        &:hover{
+            color: rgb(97, 97, 97);
+            
+        }
+    }
+}

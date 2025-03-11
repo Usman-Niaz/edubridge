@@ -1,0 +1,83 @@
+<div class="card">
+  <div class="card-header">Add Course</div>
+  <div class="card-body">
+    <form #courseForm="ngForm" (ngSubmit)="onSubmit(courseForm)">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter title"
+          id="title"
+          name="title"
+          #title="ngModel"
+          [(ngModel)]="model.title"
+          required
+        />
+        @if (title.invalid && title.touched) {
+        <div class="text-danger">Title is required.</div>
+        }
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label"
+          >Discription</label
+        >
+        <textarea
+          class="form-control"
+          rows="3"
+          placeholder="Enter Discription"
+          id="discription"
+          name="discription"
+          #discription="ngModel"
+          [(ngModel)]="model.discription"
+          required
+        ></textarea>
+        @if (discription.invalid && discription.touched) {
+        <div class="text-danger">Discription is required.</div>
+        }
+      </div>
+      <div>
+        <label for="image" class="m-3">Choose an image </label>
+        <input
+          type="file"
+          name="image"
+          id="image"
+          accept="image/*"
+          [multiple]="false"
+          (change)="onFileSelected($event)"
+          ngModel
+          required
+        />
+        @if (cover) {
+        <div class="image" align="right">
+          <img [src]="cover" alt="image" />
+        </div>
+        } @if (showError) {
+        <div class="text-danger">Image is required.</div>
+
+        }
+      </div>
+      <div class="m-3" align="center">
+        <button type="submit" class="btn btn-primary btn-lg">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<section>
+  <div class="row mt-3">
+    @for (course of courses; track $index) {
+    <div class="col-lg-3">
+      <app-courses
+        [course]="course"
+        [isDelete]="true"
+        (del)="deleteCourse($event)"
+      />
+    </div>
+    }@empty {
+    <div align="center">
+      <h3>No Course is added yet</h3>
+    </div>
+    }
+  </div>
+</section>

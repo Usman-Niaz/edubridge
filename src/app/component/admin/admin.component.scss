@@ -1,0 +1,36 @@
+.card{
+    width: 70%;
+    margin: auto;
+    margin-top: 2rem;
+    &-header{
+        font-size: 1.8rem;
+        font-weight: 700;
+    }
+    button{
+        width: 10rem;
+        font-size: 1rem;
+    }
+
+}
+.image{
+    img{
+        height: auto;
+        width: 20rem;
+    }
+}
+.main-content{
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    h1{
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 30px;
+        color: rgb(75, 74, 74);
+        margin-bottom: 2rem;
+    }
+}
+.courses{
+    background-color: #effeff;
+    padding: 4vh;
+}
